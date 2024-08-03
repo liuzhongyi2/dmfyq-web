@@ -1,0 +1,26 @@
+A=alpine
+b=$PATH/
+B=$b$A
+Q=QQ群973095862
+q=qemu
+if [ -f "$B" ]; then
+echo $A命令已存在，无法安装$q，可进$Q解决
+else
+read -p "你要安装$q吗？[Y/n] " a
+if [[ $a =~ ^[Yy]$ ]]; then
+pkg i proot-distro -y
+pd i $A
+echo "apk upgrade
+apk add $q-system-x86_64 $q-img">$B
+chmod +x $B
+pd sh $A -- $B
+echo pd sh $A -- $b\bash>$B
+chmod +x $B
+clear
+S=echo\ 输入$A进入$q环境,exit退出,$Q
+$S
+echo $S>>$PREFIX/etc/termux-login.sh
+else
+echo 终止
+fi
+fi
